@@ -17,6 +17,10 @@ jobs:
         ports:
           - 27017:27017
     steps:
+      - name: Install curl
+        run: |
+          apt-get -y update
+          apt-get -y install curl
       - name: Dumb Services Context
         run: echo '${{ toJson(job.services) }}'
       - name:  Post a user
